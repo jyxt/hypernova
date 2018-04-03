@@ -45,6 +45,8 @@ export default function hypernova(userConfig, onServer) {
   logger.init(config.logger);
 
   const app = createApplication();
+  
+  app.get('/health', (req, res) => res.json({ 'success': true })
 
   if (config.devMode) {
     worker(app, config, onServer);
