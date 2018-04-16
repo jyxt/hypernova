@@ -129,6 +129,7 @@ const worker = (app, config, onServer, workerId) => {
   // ===== Routes =============================================================
   // server.closing
   attachEndpoint(app, config, () => server && server.closing);
+  app.get('/health', (req, res) => res.json({ success: true }));
 
   // ===== initialize server's nuts and bolts =================================
   server = initServer(app, config, () => {
